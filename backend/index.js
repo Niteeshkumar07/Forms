@@ -12,7 +12,7 @@ app.post("/api/form", (req, res) => {
   const sql = "INSERT INTO users (name, email, phone, address) VALUES (?, ?, ?, ?)";
   db.query(sql, [name, email, phone, address], (err, result) => {
     if (err) {
-      console.error("❌ Error inserting into DB:", err);
+      console.error("Error inserting into DB:", err);
       return res.status(500).json({ message: "DB insert failed" });
     }
     res.json({ message: "Form submitted successfully!" });
